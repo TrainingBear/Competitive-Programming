@@ -2,26 +2,28 @@
 using namespace std;
 
 int const MAXN = 2e5+5;
-int a[MAXN], n;
+long n, a[MAXN];
+int cnt[MAXN], seen[MAXN];
 
 void solve(){
-    cin >> n;
-    unordered_map<int, int> cnt;
-    for(int i = 1; i <= n; i++){
-        int x; cin >> x;
-        cnt[x]+=1;
-    }
-    int ans = 0;
-    for(auto&a:cnt){
-        ans+= a.second - (a.second%a.first);
-    }
-    cout << ans << '\n';
+	cin >> n;
+	memset(cnt, 0, sizeof(cnt));
+	memset(seen, 0,  sizeof(seen));
+	for(int i = 0 ; i < n; i++) {
+		cin >> a[i];
+		cnt[a[i]]++;
+	}
+
+	int ans = 0;
+	for(int i = 0 ; i < n;i++){
+	}
 }
 
-int main(){
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-    int t = 1;
-    cin >> t;
-    while(t--) solve();
+int main() {
+    std::ios::sync_with_stdio(0); std::cin.tie(0); int t = 1;
+	
+	cin >> t;
+
+	while(t--){ solve(); }
+	return 0;
 }

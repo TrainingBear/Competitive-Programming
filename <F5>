@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+const long long cap = 1e7+5;
+
+long long n, k, x, a, b, c, X[cap], sum, ans;
+
+int main(){
+    cin >> n >> k;
+    cin >> x >> a >> b >> c;
+    x[0] = x;
+    for(ll i = 1; i < n; i++){
+        X[i] = (X[i-1]+b) % c;
+    }
+    for(ll i = 0; i < k; i++){
+        sum+=X[i];
+    }
+    for(int i = k+1; i < n; i++){
+        sum+=X[i];
+        sum-=X[i-k];
+    }
+    cout << sum;
+}

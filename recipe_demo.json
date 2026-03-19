@@ -1,0 +1,14 @@
+{
+    "recipes" : {
+        "item" : "minecraft:iron_helmet",
+        "ammount" : 1,
+        "pattern" : [
+            "1i,1i,1i",
+            "1i,#,1i"
+        ],
+        "key" : [
+            {"i" : "minecraft:iron_ingot"}
+        ],
+        "meta_data" : [ ]
+    }
+}
