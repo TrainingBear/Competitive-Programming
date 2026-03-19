@@ -1,0 +1,15 @@
+{
+    "recipes" : [
+        {
+            "name" : "minecraft:iron_helmet",
+            "count" : 1,
+            "table" : [ 
+                {"1" : 301301301},
+                {"2" : 301000301}
+            ],
+            "keys" : [
+                {"3" : "minecraft:iron_ingot"}
+            ]
+        }
+    ]
+}

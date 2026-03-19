@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+const long MOD = 1e9+7, MAXN = 1e6+5;
+
+inline void solve(){
+    long n, m;
+    cin >> n >> m;
+    vector<long> a(n), dp(m+1, 0);
+    for(int i =0; i < n; i++) cin >> a[i];
+
+    dp[0] = 1;
+    for (long k : a) {
+        for(int i = 1; i <= m;i++)
+            if (i - k >= 0) {
+                dp[i] += dp[i - k];
+                dp[i]%=MOD;
+            }
+    }
+
+    cout << dp[m]%MOD;
+}
+
+int main(){
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int t = 1;
+    while(t--) solve();
+}
