@@ -13,18 +13,16 @@ inline void solve() {
     for (int i = 0; i < n; i++) cin >> p[i];
 
     dp[0] = 1;
-    for (int i = 1; i <= x; i++) {
-        dp[i] = MAXN;
-		price[i] = 0;
-        for (int j = 0; j < n; j++) {
+    for (int j = 0; j < n; j++) {
+        for (int i = 1; i <= x; i++) {
             if (i - c[j] >= 0) {
-                dp[i] = min(dp[i], dp[i-c[j]]+1);
-                price[i] = max(price[i], p[j]);
+				if(i-c[j]==0) price[i] += p[j];
+                else price[i] += p[i-c[j]];
             }
         }
     }
 
-    cout << price[x];
+    cout << price[n];
 }
 int main() {
     std::ios::sync_with_stdio(0);
