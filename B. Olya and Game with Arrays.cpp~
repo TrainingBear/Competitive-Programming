@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+const int MAXN = 25000, MAXM = 50000;
+long n, m, a[MAXM];
+
+inline void solve() {
+  cin >> n >> m;
+  long ans = LONG_MAX;
+  // vector<vector<long>> a(n, vector<long>(m));
+  long mn = -1;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      cin >>[j]
+      ans = min(ans, a[j]);
+    }
+    if (mn == -1 || a[mn] > a[j])
+      mn = i;
+  }
+
+  for (int i = 0; i < n; i++) {
+    if (i == mn)
+      continue;
+    ans += a[i][m >= 2];
+  }
+
+  cout << ans << '\n';
+}
+
+int main() {
+  std::ios::sync_with_stdio(0);
+  std::cin.tie(0);
+  int t = 1;
+
+  cin >> t;
+
+  while (t--) {
+    solve();
+  }
+  return 0;
+}

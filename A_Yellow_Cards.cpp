@@ -2,18 +2,17 @@
 using namespace std;
 #define ll long long
 
-const int MAXN = 2e5+5;
-long n, a[MAXN];
+int a1, a2, k1, k2, n;
 
 inline void solve(){
-	cin >> n;
-	for(int i =0; i <n; i++) cin >> a[i];
+    cin >> a1 >> a2 >> k1 >> k2 >> n;
+
+    
 }
 
 int main() {
     std::ios::sync_with_stdio(0); std::cin.tie(0); int t = 1;
 	
-	cin >> t;
 
 	while(t--){ solve(); }
 	return 0;

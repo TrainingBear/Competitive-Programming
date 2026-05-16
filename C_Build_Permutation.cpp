@@ -2,12 +2,13 @@
 using namespace std;
 #define ll long long
 
-const int MAXN = 2e5+5;
-long n, a[MAXN];
+int n;
 
 inline void solve(){
-	cin >> n;
-	for(int i =0; i <n; i++) cin >> a[i];
+    cin >> n;
+    for(int i = 0; i < n ; i++){
+        
+    }
 }
 
 int main() {

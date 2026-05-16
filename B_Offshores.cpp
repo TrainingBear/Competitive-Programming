@@ -3,11 +3,19 @@ using namespace std;
 #define ll long long
 
 const int MAXN = 2e5+5;
-long n, a[MAXN];
+ll n, x, y, a[MAXN];
 
 inline void solve(){
-	cin >> n;
-	for(int i =0; i <n; i++) cin >> a[i];
+    cin >> n >> x >> y;
+    ll sum = 0;
+    ll mx = 0;
+    for(int i = 0 ; i < n ; i++){
+        cin >> a[i];
+
+        mx = max(mx, a[i]-a[i]/x*y);
+        sum += a[i]/x*y;
+    }
+    cout << sum+mx << '\n';
 }
 
 int main() {
