@@ -6,15 +6,17 @@ void setIO(string name) {
   freopen((name + ".out").c_str(), "w", stdout);
 }
 
-inline void solve() {}
+inline void solve() {
+  int a, b, c;
+  cin >> a >> b >> c;
+}
 
 int main() {
   std::ios::sync_with_stdio(0);
   std::cin.tie(0);
   int t = 1;
 
-  setIO("name");
-  cin >> t;
+  // setIO("name");
 
   while (t--) {
     solve();
