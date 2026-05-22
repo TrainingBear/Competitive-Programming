@@ -18,7 +18,8 @@ int TIGA(int N) {
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    int n; cin >> n;
+    int n;
+    cin >> n;
     ll z = TIGA(n);
     cout << z;
 }

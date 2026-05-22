@@ -4,14 +4,14 @@ using namespace std;
 int t, n;
 string s;
 
-void solve(){
+void solve() {
     cin >> n >> s;
 
     set<int> ans;
 
-    for(int i = 0; i < n-1; i++){
-        if(s[i]=='0'){
-            ans.insert(i+1);
+    for (int i = 0; i < n - 1; i++) {
+        if (s[i] == '0') {
+            ans.insert(i + 1);
         }
     }
     cout << ans.size() << '\n';
@@ -22,7 +22,7 @@ void solve(){
     cout << '\n';
 }
 
-int main(){
+int main() {
     cin >> t;
-    while(t--) solve();
+    while (t--) solve();
 }
