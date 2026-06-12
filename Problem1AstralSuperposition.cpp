@@ -15,27 +15,23 @@ string a[MAXN];
 inline void solve(){
   cin >> n >> x >> y;
   int stars = 0;
-  for(int i = n-1 ;i >= 0 ; i--) {
-    string s; cin >> s;
-    reverse(s.begin(), s.end());
-    a[i] = s;
+  for(int i = 0 ;i < n ; i++) {
+    cin >> a[i];
   }
 
   for(int i = 0; i < n ; i++){
     for(int j = 0; j < n; j++){
       stars+=a[i][j]!='W';
-      if(j+x < n && i+y < n && a[i][j] != 'W'){
-        if(a[i][j] == 'B' && a[i+y][j+x] == 'W') {
+      if(a[i][j]=='G' && j-x >= 0 && i-y >= 0 && a[i-y][j-x] != 'G') stars--;
+      if(a[i][j]=='B' && (x+y) != 0){
+        if(j-x >= 0 && i-y >= 0 && a[i-y][j-x] != 'W')
+          stars--;
+        else {
           cout << -1 << '\n';
           return;
         }
-        else a[i+y][j+x] = (a[i][j] == 'B'? 'G' : 'W');
-      } else if(a[i][j] == 'B') {
-        cout << -1 << '\n';
-        return;
       }
     }
-    // cout << a[i] << '\n';
   }
   cout << stars << '\n';
 

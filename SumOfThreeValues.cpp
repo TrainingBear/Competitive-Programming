@@ -12,35 +12,24 @@ void setIO(string name = "") {
 inline void solve(){
   int n, x;
   cin >> n >> x;
-  int a[n];
-  unordered_map<int, int> loc, cnt;
-  for(int i = 0 ;i < n ; i++) {
-    cin >> a[i];
-    loc[a[i]] = i+1;
-    cnt[a[i]]++;
+
+  pair<int, int> a[n+1];
+  for(int i = 1 ; i<= n ; i++) {
+    cin >> a[i].first;
+    a[i].second = i;
   }
+  sort(a+1, a+n+1);
 
-  sort(a, a+n);
-
-  for(int i = 0; i < n ; i++){
-    int sum = a[i];
-    int l = i, r= i;
-    while(l < n && l<=r){
-      sum+=a[r++];
-    }
-  }
-
-  for(int i = 0 ;i < n ; i ++){
-    for(int j = i+1; j < n; j++){
-      cnt[a[i]]--;
-      cnt[a[j]]--;
-      int x2 = x-a[i] - a[j];
-      if(x2 > 0 && loc[x2] && cnt[x2]){
-        cout << i+1 << " " << j+1 << " " << loc[x2];
+  for(int i = 1; i <= n; i++){
+    int l = i+1, r = n;
+    while (l < r){
+      ll sum = a[l].first + a[r].first + a[i].first;
+      if(sum > x) r--;
+      else if(sum < x) l++;
+      else {
+        cout << a[l].second << " " << a[r].second << " " << a[i].second << '\n';
         return;
       }
-      cnt[a[i]]++;
-      cnt[a[j]]++;
     }
   }
   cout << "IMPOSSIBLE\n";

@@ -10,25 +10,27 @@ void setIO(string name = "") {
 }
 
 inline void solve(){
-  int n; cin >> n;
-  string s; cin >> s;
+  int n, x;
+  cin >> n >> x;
 
-  unordered_set<char> u;
-  for(auto a : s) u.insert(a);
-
-  unordered_map<char, int> cnt;
-  int ans = 2e9;
-  int l = 0;
-  int r = 0;
-  while(r < n && l<=r){
-    cnt[s[r]]++;
-    while(l < r && cnt[s[l]] > 1) cnt[s[l++]]--;
-    if(u.size() == cnt.size()) {
-      ans = min(r-l+1, ans);
-    }
-    r++;
+  pair<int, int> a[n];
+  for(int i = 0 ; i < n ; i++){
+    cin >> a[i].first;
+    a[i].second = i+1;
   }
-  cout << ans << '\n';
+  sort(a, a+n);
+
+  int l = 0, r = n-1;
+  while(l < r){
+    int sum = a[l].first+a[r].first;
+    if(sum > x) r--;
+    else if(sum < x) l++;
+    else {
+      cout << a[l].second << " " << a[r].second;
+      return;
+    }
+  }
+  cout << "IMPOSSIBLE\n";
 }
 int main() {
   setIO(); int t = 1;
