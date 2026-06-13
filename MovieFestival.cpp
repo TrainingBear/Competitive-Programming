@@ -10,24 +10,18 @@ void setIO(string name = "") {
 }
 
 inline void solve(){
-  int n, m, k;
-  cin >> n >> m >> k;
-  int a[n], b[m];
-  for(int i = 0 ;i < n ; i++) cin >> a[i];
-  for(int i =0 ; i < m; i++) cin >> b[i];
-  
-  sort(b, b+m);
+  int n; cin >> n;
+  pair<int, int> a[n];
+  for(int i = 0 ;i <n ; i ++){
+    cin >> a[i].second >> a[i].first;
+  }
   sort(a, a+n);
-  int r = 0;
-  int ans = 0;
-  for(int i = 0 ;i < m && r < n;){
-    int d = b[i]-a[r];
-    if(abs(d) <= k){
-      i++,r++;
-      ans++;
-    }
-    else if(d > 0) r++;
-    else i++;
+  int ans = 1;
+  for(int i = 0 ; i+1 < n ;){
+    int r = i+1;
+    while(r < n && a[r].second < a[i].first) r++;
+    i = r;
+    ans += (r < n);
   }
   cout << ans << '\n';
 }

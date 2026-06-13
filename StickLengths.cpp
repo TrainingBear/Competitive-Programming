@@ -10,26 +10,16 @@ void setIO(string name = "") {
 }
 
 inline void solve(){
-  int n, m, k;
-  cin >> n >> m >> k;
-  int a[n], b[m];
-  for(int i = 0 ;i < n ; i++) cin >> a[i];
-  for(int i =0 ; i < m; i++) cin >> b[i];
-  
-  sort(b, b+m);
+  int n; cin >> n;
+  int a[n];
+  for(int i = 0 ; i < n ; i++) cin >> a[i];
   sort(a, a+n);
-  int r = 0;
-  int ans = 0;
-  for(int i = 0 ;i < m && r < n;){
-    int d = b[i]-a[r];
-    if(abs(d) <= k){
-      i++,r++;
-      ans++;
-    }
-    else if(d > 0) r++;
-    else i++;
+  ll ans1 = 0, ans2 = 0;
+  for(int i = 0; i < n; i++){
+    ans1+=abs(a[i]-a[n/2]);
+    ans2+=abs(a[i]-a[n/2-1]);
   }
-  cout << ans << '\n';
+  cout << min(ans1, ans2);
 }
 int main() {
   setIO(); int t = 1;

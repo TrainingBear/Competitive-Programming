@@ -10,29 +10,19 @@ void setIO(string name = "") {
 }
 
 inline void solve(){
-  int n, m, k;
-  cin >> n >> m >> k;
-  int a[n], b[m];
-  for(int i = 0 ;i < n ; i++) cin >> a[i];
-  for(int i =0 ; i < m; i++) cin >> b[i];
-  
-  sort(b, b+m);
+  int n, m, c;
+  cin >> n >> m >> c;
+  int a[n];
+  for(int i = 0; i < n ;i ++) cin >> a[i];
   sort(a, a+n);
-  int r = 0;
   int ans = 0;
-  for(int i = 0 ;i < m && r < n;){
-    int d = b[i]-a[r];
-    if(abs(d) <= k){
-      i++,r++;
-      ans++;
-    }
-    else if(d > 0) r++;
-    else i++;
+  for(int i = 0; i < n; i+=c){
+    ans = max(ans, a[i+c-1]-a[i]);
   }
   cout << ans << '\n';
 }
 int main() {
-  setIO(); int t = 1;
+  setIO("convention"); int t = 1;
 
   while (t--) solve();
   return 0;
