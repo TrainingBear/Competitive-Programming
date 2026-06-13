@@ -1,9 +1,0 @@
-8
-add 1 1
-add 2 2
-add 3 3
-del 2
-adx 2
-del 2
-dex 1
-del 2
