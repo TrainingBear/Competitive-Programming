@@ -10,34 +10,37 @@ void setIO(string name = "") {
 }
 
 inline void solve(){
-  int n, m;
+  ll n, m;
   cin >> n >> m;
-  int a[n], g[m], girls = 0;
-  for(int i = 0; i <n  ; i++) cin >> a[i];
-  for(int i = 0 ; i < m; i++) cin >> g[i];
-  sort(a, a+n, greater<int>());
-  sort(g, g+m, greater<int>());
-  int r = 0;
+  ll sumBoy = 0, sumGirl = 0;
   ll ans = 0;
-  for(int i = 0 ; i < n ; i++){
-    ll sum = 0;
-    bool flag = 1;
-    int j = 0;
-    while(r < m){
-      if(a[i] > g[r]){
-        cout << -1 << '\n';
-        return;
-      }
-      if(a[i]==g[r]) flag = 0;
-      sum += g[r++];
-      j++;
+  ll mxb = 0, mxb2 = 0;
+  ll mng = 1e9;
+  ll x;
+  for(int i = 0; i <n  ; i++) {
+    cin >> x;
+    sumBoy+=x;
+    if(mxb <= x){
+      mxb2 = mxb;
+      mxb = x;
+    } else if(mxb2 <= x){
+      mxb2 = x;
     }
-    if(flag && j == m) {
-      r--, j--;
-      sum-=g[r];
-    }
-    sum+=a[i]*(m-j);
-    ans+=sum;
+  }
+  for(int i = 0 ; i < m; i++) {
+    cin >> x;
+    sumGirl+=x;
+    mng = min(mng, x);
+  }
+  if(mxb > mng){
+    cout << -1 << '\n'; return;
+  }
+  ans += (sumBoy * m);
+  ans += sumGirl;
+  ans -= (mxb*m);
+  if(mng > mxb){
+    ans+=mxb;
+    ans-=mxb2;
   }
   cout << ans << '\n';
 } 
