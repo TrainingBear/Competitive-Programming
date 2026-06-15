@@ -10,18 +10,20 @@ void setIO(string name = "") {
 }
 
 inline void solve(){
-  int n, q; cin >> n >> q;
-  int a[n];
-  for(int i = 0 ; i <n  ; i++) cin >> a[i];
-  sort(a, a+n);
-  while(q--){
-    int l, r; cin >> l >> r;
-    cout << upper_bound(a, a+n, r)-lower_bound(a, a+n, l) << '\n';
-  }
+  vector<int> a = {1, 1, 1, 3, 4 ,3 ,2 ,3 ,4 ,6, 5, 4, 5, 6, 3, 2, 1};
+  sort(a.begin(), a.end());
+  for(auto x : a) cout << x << " ";
+  cout << '\n';
+  auto it = unique(a.begin(), a.end());
+  for(auto x : a) cout << x << " ";
+  cout << '\n';
 }
 int main() {
-  setIO("haybales"); int t = 1;
+  setIO(); int t = 1;
+
+  cin >> t;
 
   while (t--) solve();
   return 0;
 }
+

@@ -9,18 +9,23 @@ void setIO(string name = "") {
   }
 }
 
+long long n;
 inline void solve(){
-  int n, q; cin >> n >> q;
-  int a[n];
-  for(int i = 0 ; i <n  ; i++) cin >> a[i];
-  sort(a, a+n);
-  while(q--){
-    int l, r; cin >> l >> r;
-    cout << upper_bound(a, a+n, r)-lower_bound(a, a+n, l) << '\n';
+  cin >> n;
+  if(n==10) {
+    cout << -1 << '\n';
+    return;
   }
+  int pa[12] = {
+    0,1,2,3,4,5,6,7,8,9,22,11
+  };
+  long long P = pa[n%12];
+  cout << P << " " << n-P << '\n';
 }
 int main() {
-  setIO("haybales"); int t = 1;
+  setIO(); int t = 1;
+
+  cin >> t;
 
   while (t--) solve();
   return 0;

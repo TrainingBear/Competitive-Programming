@@ -9,18 +9,24 @@ void setIO(string name = "") {
   }
 }
 
+const int MAXN = 1e2+5;
+int n, a[MAXN];
 inline void solve(){
-  int n, q; cin >> n >> q;
-  int a[n];
-  for(int i = 0 ; i <n  ; i++) cin >> a[i];
-  sort(a, a+n);
-  while(q--){
-    int l, r; cin >> l >> r;
-    cout << upper_bound(a, a+n, r)-lower_bound(a, a+n, l) << '\n';
+  cin >> n;
+  for(int i = 0 ; i < n; i++) cin >> a[i];
+  sort(a, a+n, greater<int>());
+  for(int i = 2 ; i < n ; i++){
+    if(a[i] != a[i-2]%a[i-1]){
+      cout << -1 << '\n';
+      return;
+    }
   }
+  cout << a[0] << " " << a[1] << '\n';
 }
 int main() {
-  setIO("haybales"); int t = 1;
+  setIO(); int t = 1;
+
+  cin >> t;
 
   while (t--) solve();
   return 0;
